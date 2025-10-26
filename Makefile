@@ -1,5 +1,7 @@
 CC := gcc
-CFLAGS := -Wall -Wextra -O2
+CFLAGS = -Wall -Wextra -Iinclude
+LDFLAGS = -Lexternal/raylib/src
+LIBS = -lraylib -lm -ldl -lpthread -lGL -lrt -lX11
 
 SRC_DIR := src
 BIN_DIR := bin
@@ -19,7 +21,7 @@ $(SERVER_BIN): $(SERVER_SRC)
 	$(CC) $(CFLAGS) $< -o $@
 
 $(CLIENT_BIN): $(CLIENT_SRC)
-	$(CC) $(CFLAGS) $< -o $@
+	$(CC) $(CFLAGS) $< -o $@ $(LDFLAGS) $(LIBS)
 
 clean:
 	rm -rf $(BIN_DIR)
