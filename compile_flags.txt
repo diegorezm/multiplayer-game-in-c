@@ -1,3 +1,4 @@
 -Iinclude
+-Isrc/common
 -Wall
 -Wextra
